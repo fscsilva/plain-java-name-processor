@@ -4,7 +4,6 @@ import com.silva.industries.nameprocessor.domain.Person;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
-import javax.xml.validation.Validator;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,7 +16,7 @@ import java.util.stream.Stream;
 public class Reader {
 
     private final String filePath;
-    private final Pattern pattern = Pattern.compile("([A-z]+[, ]+[A-z]+[ -- ]+)[A-z]+");
+    private final Pattern pattern = Pattern.compile("(([A-z]+[']?)+[, ]+([A-z]+[']?)+[ -- ]+)[A-z]+");
 
     public Stream<Person> readFile() {
         var classLoader = getClass().getClassLoader();
